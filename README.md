@@ -38,6 +38,7 @@
 
 - belongs_to :user
 - has_many :comments
+- has_one :purchase
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :shipping_fee_type
