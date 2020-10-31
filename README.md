@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchase_manage
+- has_many :purchase_manages
 - has_many :comments
 
 ## items テーブル
@@ -45,7 +45,7 @@
 - belongs_to_active_hash :delivery_time
 - belongs_to_active_hash :price
 
-## purchases_infos テーブル
+## purchase_infos テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -61,7 +61,7 @@
 
 - belongs_to :purchase_manage
 
-## purchases_manages テーブル
+## purchase_manages テーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
