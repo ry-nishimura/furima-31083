@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_type
   belongs_to :prefecture
   belongs_to :delivery_time
+  has_one_attached :image
 
   validates :name, :explanation, :category, :condition, :shipping_fee_type, :prefecture, :delivery_time, presence: true
   validates :category_id, numericality: { other_than: 1 }
