@@ -69,7 +69,7 @@ RSpec.describe User, type: :model do
         @user.password = "000000"
         @user.password_confirmation = "000000"
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include("Password include both letters and numbers")
       end
       it "passwordが存在してもpassword_confirmationが空だと登録できない" do
         @user.password_confirmation = ''
