@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :user do
-    nickname              {Faker::Pokemon.name}
+    nickname              {Faker::Artist.name}
     email                 {Faker::Internet.free_email}
-    password              {Faker::Internet.password(min_length: 6)}
+    password              {Faker::Internet.password}
     password_confirmation {password}
-    family_name           {Faker::Name.family_name}
-    first_name            {Faker::Name.first_name}
-    family_name_kana      {Faker::Name.family.katakana}
-    first_name_kana       {Faker::Name.first.katakana}
-    birthday              {Faker::Faker::Date.backward}
+    family_name           {"鈴木"}
+    first_name            {"一朗"}
+    family_name_kana      {"スズキ"}
+    first_name_kana       {"イチロウ"}
+    birthday              {Faker::Date.birthday(min_age: 5, max_age: 90)}
   end
 end
