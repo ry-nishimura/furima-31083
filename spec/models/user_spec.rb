@@ -13,6 +13,14 @@ RSpec.describe User, type: :model do
         @user.nickname = "000000"
         expect(@user).to be_valid
       end
+      it "family_nameが全角文字であれば登録できる" do
+        @user.family_name = "鈴木"
+        expect(@user).to be_valid
+      end
+      it "first_nameが全角文字であれば登録できる" do
+        @user.first_name = "一朗"
+        expect(@user).to be_valid
+      end
       it "family_name_kanaが全角カタカナであれば登録できる" do
         @user.family_name_kana = "スズキ"
         expect(@user).to be_valid
@@ -62,10 +70,20 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Family name can't be blank")
       end
+      it "family_nameが全角文字でなければ登録できない" do
+        @user.family_name = 'ｽｽﾞｷ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Family name Full-width characters")
+      end
       it "first_nameが空だと登録できない" do
         @user.first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
+      end
+      it "first_nameが全角文字でなければ登録できない" do
+        @user.first_name = 'ｲﾁﾛｳ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name Full-width characters")
       end
       it "family_name_kanaが空だと登録できない" do
         @user.family_name_kana = ''
