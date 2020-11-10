@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_time
   has_one_attached :image
 
-  validates :name, :explanation, :category, :condition, :shipping_fee_type, :prefecture, :delivery_time, :image, presence: true
+  validates :name, :explanation, :category, :condition, :shipping_fee_type, :prefecture, :delivery_time, :price, :image, presence: true
   validates :category_id, numericality: { other_than: 1 }
   validates :condition_id, numericality: { other_than: 1 }
   validates :shipping_fee_type_id, numericality: { other_than: 1 }
