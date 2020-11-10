@@ -14,4 +14,6 @@ class Item < ApplicationRecord
   validates :shipping_fee_type_id, numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 1 }
   validates :delivery_time_id, numericality: {other_than: 1 }
+  validates :price, numericality: { :greater_than_or_equal_to => 300 }
+  validates :price, numericality: { :less_than_or_equal_to => 9999999 }
 end
