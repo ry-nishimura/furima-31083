@@ -21,17 +21,17 @@
 
 ## items テーブル
 
-| Column               | Type       | Options                      |
-| -------------------- | ---------- | ---------------------------- |
-| name                 | string     | null: false                  |
-| explanation          | text       | null: false                  |
-| category_id          | integer    | null: false                  |
-| condition_id         | integer    | null: false                  |
-| shipping_fee_type_id | integer    | null:false                   |
-| prefecture_id        | integer    | null:false                   |
-| delivery_time_id     | integer    | null:false                   |
-| price                | integer    | null:false                   |
-| user                 | references | null:false, foreign_key:true |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| name                 | string     | null: false                    |
+| explanation          | text       | null: false                    |
+| category_id          | integer    | null: false                    |
+| condition_id         | integer    | null: false                    |
+| shipping_fee_type_id | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
+| delivery_time_id     | integer    | null: false                    |
+| price                | integer    | null: false                    |
+| user                 | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -43,7 +43,6 @@
 - belongs_to_active_hash :shipping_fee_type
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :delivery_time
-- belongs_to_active_hash :price
 
 ## purchase_infos テーブル
 
