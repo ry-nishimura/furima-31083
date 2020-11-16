@@ -5,6 +5,9 @@ class UserOrder
   validates :token, presence: true
   with_options precence: true do
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-
+    validates :prefecture, format: numericality: { other_than: 1 }
+    validates :city
+    validates :address
+    validates :phone_number format: { /^(0{1}\d{9,10})$/, message: "is invalid. Include hyphen(-)" }
   end
 end
