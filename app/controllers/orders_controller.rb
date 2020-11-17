@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @order_purchase_info = OrderPurchaseInfo.new(purchase_info_params)
     if @order_purchase_info.valid?
       @order_purchase_info.save
-      redirect_to controller: :items, action: :index
+      redirect_to root_path
     else
       render action: :index
     end
