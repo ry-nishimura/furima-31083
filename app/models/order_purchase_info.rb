@@ -1,4 +1,4 @@
-class UserOrder
+class OrderPurchaseInfo
   include ActiveModel::Model
   attr_accessor :token, :postal_code, :prefecture, :city, :address, :building_name, :phone_number
   
