@@ -8,6 +8,10 @@ class UserOrder
     validates :prefecture, format: numericality: { other_than: 1 }
     validates :city
     validates :address
-    validates :phone_number format: { /^(0{1}\d{9,10})$/, message: "is invalid. Not include hyphen(-)" }
+    validates :phone_number format: { with: /^(0{1}\d{9,10})$/, message: "is invalid. Not include hyphen(-)" }
+  end
+  def save
+    PurchaseInfo.create(postal_code: postal_code, prefecture: prefecture, city: city, address: address, building_name: building_name, phone_number: phone_number)
+    Order.create(user_id: user.id, item_id: item.id)
   end
 end
