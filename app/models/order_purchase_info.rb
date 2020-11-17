@@ -12,6 +12,6 @@ class OrderPurchaseInfo
   end
   def save
     PurchaseInfo.create(postal_code: postal_code, prefecture: prefecture, city: city, address: address, building_name: building_name, phone_number: phone_number)
-    Order.create(user_id: user.id, item_id: item.id)
+    Order.create(token: token)
   end
 end
