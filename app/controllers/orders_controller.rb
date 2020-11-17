@@ -13,4 +13,9 @@ class OrdersController < ApplicationController
       render action: :index
     end
   end
+
+  private
+  def purchase_info_params
+    params.require(:order_purchase_info).permit(:token, :postal_code, :prefecture, :city, :address, :building_name, :phone_number)
+  end
 end
