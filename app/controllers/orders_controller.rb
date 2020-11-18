@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     if @order_purchase_info.valid?
       Payjp.api_key = "sk_test_2ced90ecfbb0cffe9f35ec0a"
       Payjp::Charge.create(
-        card: purchase_info_params[:token]
+        card: purchase_info_params[:token],
         currency: 'jpy'
       )
       @order_purchase_info.save
