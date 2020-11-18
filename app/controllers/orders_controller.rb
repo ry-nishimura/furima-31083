@@ -16,6 +16,6 @@ class OrdersController < ApplicationController
 
   private
   def purchase_info_params
-    params.require(:order_purchase_info).permit(:token, :postal_code, :prefecture, :city, :address, :building_name, :phone_number)
+    params.require(:order_purchase_info).permit(:postal_code, :prefecture, :city, :address, :building_name, :phone_number).merge(token: params[:token])
   end
 end
