@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index, only: :index
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @order_purchase_info = OrderPurchaseInfo.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_purchase_info = OrderPurchaseInfo.new(purchase_info_params)
     if @order_purchase_info.valid?
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
@@ -20,7 +19,6 @@ class OrdersController < ApplicationController
       @order_purchase_info.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render action: :index
     end
   end
@@ -28,6 +26,10 @@ class OrdersController < ApplicationController
   private
   def purchase_info_params
     params.require(:order_purchase_info).permit(:postal_code, :prefecture_id, :city, :address, :building_name, :phone_number).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def move_to_index
